@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1.0,user-scalable=no'>
+    <meta name="color-scheme" content="light dark">
+    <title>合成十移植</title>
+    <style>
+        body{
+            -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+            -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+            -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+            background-color:#E4E4E4;
+            background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
+            font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+            height:100vh;
+            margin:0px;
+            padding:0px;
+            /* Padding to avoid the "unsafe" areas behind notches in the screen */
+            padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+            text-transform:uppercase;
+            width:100%;
+            overflow: hidden;
+            text-align: center;
+        }
+        .app{
+            -webkit-animation:showon 1000ms;
+            animation:showon 1000ms;
+            position:absolute;             /* position in the center of the screen */
+            margin:0px 0px 0px -50px;  /* offset vertical: half of image height and text area height */
+                                           /* offset horizontal: half of text area width */
+        }
+        h1{
+            -webkit-animation:showon 1000ms;
+            animation:showon 1000ms;
+        }
+        select{
+            position:flex;
+        }
+        div{
+            position: relative;
+        }
+        #gameboard{
+            margin: auto;
+            margin-top: 110px;
+        }
+        #gameboard div{
+            border:1px solid;
+            outline:4px double rgb(255, 255, 255);
+            border-color: rgb(255, 255, 255);
+            text-align:center;
+            float: left;
+        }
+        #score{
+            margin-top: 10px;
+            margin-left: 5px;
+            width: 500px;
+            height: 20px;
+        }
+        @keyframes showon {/*出现*/
+            from { opacity: 0; }
+            to { opacity: 1.0; }
+
+        }
+    </style>
+</head>
+<body onselectstart="return false;"><!--设置双击无效果-->
+    <h1>合成十移植</h1>
+    <div style='width:500px;height:30px;border:transparent;' class='app'><!--下移20px 居中 用一个div框住两个选择钮--><!---->
+        <select id='width'><!--合成十宽度-->
+            <option value='0'>--请选择宽--</option>
+            <option value='5'>宽5</option>
+            <option value='6'>宽6</option>
+            <option value='7'>宽7</option>
+            <option value='8'>宽8</option>
+            <option value='9'>宽9</option>
+            <option value='10'>宽10</option>
+        </select>
+        <select id='height'><!--合成十高度-->
+            <option value='0'>--请选择高--</option>
+            <option value='5'>高5</option>
+            <option value='6'>高6</option>
+            <option value='7'>高7</option>
+            <option value='8'>高8</option>
+        </select>
+        <select id='goal'><!--合成十目标-->
+            <option value='10'>--请选择合成目标--</option>
+            <option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option>
+            <option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option>
+            <option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option>
+            <option value='19'>19</option><option value='20'>20</option>
+        </select>
+        <br>
+        <button id='start'>开始游戏</button>
+        <button onclick="window.location.href='index.html'">返回</button>
+        <div id="score"></div>
+    </div>
+    <div id='gameboard'> </div>
+    
+    <script type='text/javascript' src='game.js'></script>
+    <script src="cordova.js"></script>
+    <script>
+        
+    </script>
+    
+</body>
+</html>
